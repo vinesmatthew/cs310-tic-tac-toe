@@ -21,19 +21,31 @@ public class TicTacToeView {
         /* Prompt the player to enter the row and the column of their next move.
            Return as a TicTacToeMove object. */
         
-        if(isXTurn)
+        if(isXTurn) {
             System.out.println("Player 1 (X) Move:");
-        else
+        } else {
             System.out.println("Player 2 (O) Move:");
+        }
+        
         System.out.print("Enter the row and column numbers, separated by a space: ");
-        Scanner scanner = new Scanner(System.in);
-        String[] coordinates = scanner.nextLine().split(" ");
-        int row = Integer.parseInt(coordinates[0]);
-        int column = Integer.parseInt(coordinates[1]);
-        TicTacToeMove move = new TicTacToeMove(row, column);
-
-        return move;
-
+        String[] coordinates = keyboard.nextLine().split(" ");
+        String[] prep = (coordinates[0] + coordinates[1]).split("");
+        boolean number = true;
+        
+        int row = -1;
+        int col = -1;
+        
+        for (String i: prep) {
+            if (!Character.isDigit(i.charAt(0))) {
+                number = false;
+            }
+        }
+        if (number && prep.length == 2) {
+            row = Integer.parseInt(coordinates[0]);
+            col = Integer.parseInt(coordinates[1]);
+        }
+        
+        return new TicTacToeMove(row, col);
     }
 
     public void showInputError() {

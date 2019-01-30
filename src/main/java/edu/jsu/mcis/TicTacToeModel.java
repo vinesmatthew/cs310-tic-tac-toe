@@ -111,7 +111,7 @@ public class TicTacToeModel {
     private boolean isValidSquare(int row, int col) {
         
         /* Return TRUE if the specified location is within the bounds of the board */
-        return !((row > (width - 1)) || (col > (width - 1)));
+        return row < width && col < width && row >= 0 && col >= 0;
         
     }
 	
@@ -194,7 +194,7 @@ public class TicTacToeModel {
         
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < width; j++) {
-                if (board[i][j].equals(Mark.EMPTY))
+                if (!isSquareMarked(i, j))
                     emptySpaces = true;
             }
         }
