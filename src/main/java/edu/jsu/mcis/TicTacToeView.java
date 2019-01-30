@@ -25,14 +25,14 @@ public class TicTacToeView {
             System.out.println("Player 1 (X) Move:");
         else
             System.out.println("Player 2 (O) Move:");
-        System.out.println("Enter the row and column numbers, separated by a space: ");
+        System.out.print("Enter the row and column numbers, separated by a space: ");
         Scanner scanner = new Scanner(System.in);
         String[] coordinates = scanner.nextLine().split(" ");
         int row = Integer.parseInt(coordinates[0]);
         int column = Integer.parseInt(coordinates[1]);
         TicTacToeMove move = new TicTacToeMove(row, column);
 
-        return move; // remove this line later!
+        return move;
 
     }
 
