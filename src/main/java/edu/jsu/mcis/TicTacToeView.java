@@ -28,19 +28,18 @@ public class TicTacToeView {
         }
         
         System.out.print("Enter the row and column numbers, separated by a space: ");
-        String[] coordinates = keyboard.nextLine().split(" ");
-        String[] prep = (coordinates[0] + coordinates[1]).split("");
+        String line = keyboard.nextLine();
+        String[] coordinates = line.split(" ");
         boolean number = true;
-        
         int row = -1;
         int col = -1;
-        
+        String[] prep = line.split("");
         for (String i: prep) {
             if (!Character.isDigit(i.charAt(0))) {
                 number = false;
             }
         }
-        if (number && prep.length == 2) {
+        if (number && coordinates.length == 2) {
             row = Integer.parseInt(coordinates[0]);
             col = Integer.parseInt(coordinates[1]);
         }

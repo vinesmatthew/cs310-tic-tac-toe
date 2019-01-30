@@ -57,4 +57,4 @@ if (hasProperty("Xlint:unchecked")) {
 }
 
 runrobot.debugfile = 'debug.log'
-runrobot.dependsOn build
+runrobot.dependsOn build 

@@ -112,14 +112,12 @@ public class TicTacToeModel {
         
         /* Return TRUE if the specified location is within the bounds of the board */
         return row < width && col < width && row >= 0 && col >= 0;
-        
     }
 	
     private boolean isSquareMarked(int row, int col) {
         
         /* Return TRUE if the square at specified location is marked */
         return !board[row][col].equals(Mark.EMPTY);
-            
     }
 	
     public Mark getMark(int row, int col) {
@@ -127,7 +125,6 @@ public class TicTacToeModel {
         /* Return the mark from the square at the specified location */
         
         return board[row][col];
-            
     }
 	
     public Result getResult() {
@@ -145,7 +142,6 @@ public class TicTacToeModel {
         } else {
             return Result.NONE;
         }
-        
     }
 	
     private boolean isMarkWin(Mark mark) {
@@ -153,8 +149,8 @@ public class TicTacToeModel {
         /* Check the squares of the board to see if the specified mark is the
            winner */
         
-        int rowCounter = 0;
-        int colCounter = 0;
+        int rowCounter;
+        int colCounter;
         int rightDiagCounter = 0;
         int leftDiagCounter = 0;
         
@@ -200,7 +196,6 @@ public class TicTacToeModel {
         }
         
         return !emptySpaces;
-        
     }
 
     public boolean isGameover() {
@@ -241,14 +236,14 @@ public class TicTacToeModel {
         output.append("\n\n");
                 
         for (int i = 0; i < width; i++) {
-            for (int j = 0; j < width + 1; j++) {
+            for (int j = 0; j < width; j++) {
                 if (j == 0) {
-                    output.append(i).append(" ");
+                    output.append(i).append(" ").append(board[i][j]);
                 } else if (j > 0) {
-                    output.append(board[i][j - 1]);
+                    output.append(board[i][j]);
                 } 
                 
-                if (j == width) {
+                if (j == width - 1) {
                     output.append("\n");
                 }
             }
