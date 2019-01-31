@@ -22,24 +22,25 @@ public class TicTacToeView {
            Return as a TicTacToeMove object. */
         
         if(isXTurn) {
-            System.out.println("Player 1 (X) Move:");
+            System.out.print("Player 1 (X) Move:\n");
         } else {
-            System.out.println("Player 2 (O) Move:");
+            System.out.print("Player 2 (O) Move:\n");
         }
         
         System.out.print("Enter the row and column numbers, separated by a space: ");
         String line = keyboard.nextLine();
         String[] coordinates = line.split(" ");
-        boolean number = true;
+        boolean valid = true;
         int row = -1;
         int col = -1;
-        String[] prep = line.split("");
-        for (String i: prep) {
-            if (!Character.isDigit(i.charAt(0))) {
-                number = false;
+        for (String i: coordinates) {
+            char[] prep = i.toCharArray();
+            for (char j : prep) {
+                if (coordinates.length != 2 || !Character.isDigit(j))
+                    valid = false;
             }
         }
-        if (number && coordinates.length == 2) {
+        if (valid) {
             row = Integer.parseInt(coordinates[0]);
             col = Integer.parseInt(coordinates[1]);
         }

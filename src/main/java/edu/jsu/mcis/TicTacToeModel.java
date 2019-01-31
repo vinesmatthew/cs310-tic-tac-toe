@@ -77,7 +77,6 @@ public class TicTacToeModel {
         
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < width; j++) {
-                
                 board[i][j] = Mark.EMPTY;
             }
         }
@@ -111,13 +110,13 @@ public class TicTacToeModel {
     private boolean isValidSquare(int row, int col) {
         
         /* Return TRUE if the specified location is within the bounds of the board */
-        return row < width && col < width && row >= 0 && col >= 0;
+        return (row < width) && (col < width) && (row > -1) && (col > -1);
     }
 	
     private boolean isSquareMarked(int row, int col) {
         
         /* Return TRUE if the square at specified location is marked */
-        return !board[row][col].equals(Mark.EMPTY);
+        return !getMark(row, col).equals(Mark.EMPTY);
     }
 	
     public Mark getMark(int row, int col) {
@@ -185,17 +184,15 @@ public class TicTacToeModel {
     private boolean isTie() {
         
         /* Check the squares of the board to see if the game is a tie */
-        
-        boolean emptySpaces = false;
-        
+                
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < width; j++) {
                 if (!isSquareMarked(i, j))
-                    emptySpaces = true;
+                    return false;
             }
         }
         
-        return !emptySpaces;
+        return true;
     }
 
     public boolean isGameover() {
@@ -233,7 +230,7 @@ public class TicTacToeModel {
             output.append(i);
         }
         
-        output.append("\n\n");
+        output.append("\n");
                 
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < width; j++) {
@@ -248,9 +245,7 @@ public class TicTacToeModel {
                 }
             }
         }
-                
         return output.toString();
-        
     }
     
 }

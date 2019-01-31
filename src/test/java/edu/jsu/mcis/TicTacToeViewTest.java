@@ -34,6 +34,7 @@ public class TicTacToeViewTest {
         view.showBoard(model.toString());
         String s = "\n\n  012\n\n0 ---\n1 ---\n2 ---\n\n";
         assertEquals(s.length(), output.size());
+        System.out.println(s.length() + " : " + output.size());
         
     }
 	
