@@ -13,3 +13,27 @@ Model
 	The “makeMark()” function is used for making a mark on the board by accepting a row and column number which acts as the X and Y in a graph; it also takes into account the player’s turn. The main code of the function actually lies in its further error checking. Along with the checking in the view, this further checks the selection by using the “isValidSquare()” and “isSquareMarked()” functions. When checking the validity of a player’s selection, it checks to make sure it is within the bounds of the board. The second function checks if the space being marked is empty or populated with another player’s mark. If the mark is within the bounds of the board and is not at the same location as another mark, the function marks the board with either “X” or “O” for player one and two respectively. Additionally, the “getMark()” function returns the mark requested in the parameters, the “isXTurn()” function returns a boolean indicating if player one or two is playing, and the “getWidth()” function returns the size of the board.
 	To determine a winner, the “getResult()” function must be called by the “isGameover()” function (mentioned previously in the controller). In the “getResult()” function, the appropriate results (X, O, TIE, or NONE) are returned based on two other functions in the model named “isMarkWin()” and “isTie().” These functions contain the algorithm for setting win and tie conditions. Using nested if loops inside nested for loops, each square is checked left to right, then up to down. When the row and column numbers are equal as many times in a row as the board size, a right-diagonal win condition is met. When the row and column numbers added to each other equal one subtracted by the board size as many times as the board size in a row, a left-diagonal win condition is met. Along with testing for diagonals, the horizontal and vertical counters are set. If there are any same row numbers or column numbers, a counter is added to either the vertical or horizontal variables. If, at any point, the number of identical row numbers and column numbers equal the size of the board, a vertical or horizontal win condition is met. For the “isTie()” function, the board is iterated through, and if there are no empty spaces, and there are no winners, a true is returned to indicate a tie. 
 	Constructing the board takes place in the “toString()” method of the model (which is called by the view to display the board). StringBuilders are the primary component of construction as the correct strings are appended in an efficient manner. First, the column headers are appended with the help of a for loop. Next, after adding a new line, a nested for loop iterates through the board and appends each row at a time from left to right by adding the row number, row marks, then a new line. Additionally, a new line is also added right before the string is returned.
+
+Example Output
+
+	Player 1 (X) Move:
+	Enter the row and column numbers, separated by a space: 1 1
+
+
+	  012
+	0 -X-
+	1 -XO
+	2 ---
+
+	Player 2 (O) Move:
+	Enter the row and column numbers, separated by a space: -1 2
+	Entered location is invalid, already marked, or out of bounds.
+
+
+	  012
+	0 -X-
+	1 -XO
+	2 ---
+
+	Player 2 (O) Move:
+	Enter the row and column numbers, separated by a space:
