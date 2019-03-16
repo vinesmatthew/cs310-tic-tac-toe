@@ -37,3 +37,8 @@ Example Output
 
 	Player 2 (O) Move:
 	Enter the row and column numbers, separated by a space:
+	
+Graphical Possibilities
+	With only edits to the view and associated calls from the controller, this program may be made into a graphical program. By extending the view to a JFrame with the appropriate algorithms to convert the model to graphical objects, a window with any size board can be filled with buttons.
+	To start, a two-dimensional array of JButtons must be created for the board, and they are then populated with an imbedded for-loop that adds each JButton to a JPanel. To keep track of the coordinates, the button's names are set to include their coordinates. With the JPanel added to the JFrame, a label is also added to the frame to greet the players and announce a winner. Now that the board is created, there must be functions to change the board. The first is "setButton()". When a player clicks a button, it is sent to this function, disabling the button and setting the text to either "X" or "O" respectively. Similarly, when the game is marked as over, the "setWinner()" function sets the label as "X" "O" or "TIE" respetively.
+	Changes to the controller include an action performed function that collects information from a button when it is clicked. It first sets the button in the view, then sets a winner if one is found. The rest of the controller consists of the function that creates the JFrame from the view class.
